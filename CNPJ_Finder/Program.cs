@@ -1,5 +1,5 @@
 ﻿using CNPJ_Finder.Entities;
-using CNPJ_Finder.Controller;
+using CNPJ_Finder.Controllers;
 
 Enterprise enterprise = new Enterprise();
 var json = "";
