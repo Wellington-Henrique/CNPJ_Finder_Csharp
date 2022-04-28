@@ -15,5 +15,5 @@ using (var client = new HttpClient())
     enterprise = Utils.JsonToObject(json);
 }
 
-
+Console.WriteLine();
 Console.WriteLine(enterprise.ToString());
