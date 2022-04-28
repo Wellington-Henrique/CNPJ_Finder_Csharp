@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Text;
 
 namespace CNPJ_Finder.Entities
 {
@@ -42,36 +42,31 @@ namespace CNPJ_Finder.Entities
             string principalActivity = string.Join(", \n", Atividade_principal);
             string secundaryActivities = string.Join(", \n", Atividades_secundarias);
             string partners = string.Join(", \n", Qsa);
+            StringBuilder result = new StringBuilder();
 
-            return
-                $"Nome: {Nome}\n" +
-                $"Nome Fantasia: {Fantasia}\n" +
-                $"CNPJ: {CNPJ}\n\n" +
-                $"\nAtividade Principal:\n{principalActivity}\n" +
-                $"\nAtividades Secundárias:\n{secundaryActivities}\n" +
-                $"\nAtividades Secundárias:\n{partners}\n" +
-                $"\nData situacao: {Data_situacao}\n" +
-                $"Complemento: {Complemento}\n" +
-                $"Tipo: {Tipo}\n" +
-                $"UF: {Uf}\n" +
-                $"Telefone: {Telefone}\n" +
-                $"E-mail: {Email}\n" +
-                $"Situação: {Situacao}\n" +
-                $"Bairro: {Bairro}\n" +
-                $"Logradouro: {Logradouro}\n" +
-                $"Número: {Numero}\n" +
-                $"Cep: {Cep}\n" +
-                $"Município: {Municipio}\n" +
-                $"Porte: {Porte}\n" +
-                $"Abertura: {Abertura}\n" +
-                $"Natureza Jurídica: {Natureza_juridica}\n" +
-                $"Data última atualização: {Ultima_atualizacao}\n" +
-                $"Status: {Status}\n" +
-                $"efr: {Efr}\n" +
-                $"Motivo Situação: {Motivo_situacao}\n" +
-                $"Situação Especial: {Situacao_especial}\n" +
-                $"Data Situação Especial: {Data_situacao_especial}\n" +
-                $"Capital Inicial: {Capital_social.ToString("F2")}";
+            result.Append($"Nome: {Nome}\n");
+            result.Append($"Nome Fantasia: {Fantasia}\n");
+            result.Append($"CNPJ: {CNPJ}\t");
+            result.Append($"Situação: {Situacao}\t");
+            result.Append($"Porte: {Porte} \t");
+            result.Append($"Abertura: {Abertura}\n");
+            result.Append($"Natureza Jurídica: {Natureza_juridica}\n");
+            result.Append($"\nAtividade Principal:\n{principalActivity}\n");
+            result.Append($"\nAtividades Secundárias:\n{secundaryActivities}\n");
+            result.Append($"\nSócios:\n{partners}\n");
+            result.Append($"\nData situacao: {Data_situacao}\n");
+            result.Append($"Endereço: {Tipo} { Logradouro}, {Numero}, {Bairro}, {Municipio}/{Uf} -  {Cep}\n");
+            result.Append($"Telefone: {Telefone}\n");
+            result.Append($"E-mail: {Email}\n");
+            result.Append($"Data última atualização: {Ultima_atualizacao}\n");
+            result.Append($"Status: {Status}\n");
+            result.Append($"efr: {Efr}\n");
+            result.Append($"Motivo Situação: {Motivo_situacao}\n");
+            result.Append($"Situação Especial: {Situacao_especial}\n");
+            result.Append($"Data Situação Especial: {Data_situacao_especial}\n");
+            result.Append($"Capital Inicial: R$ {Capital_social.ToString("F2")}");
+
+            return result.ToString();    
         }
     }
 }
